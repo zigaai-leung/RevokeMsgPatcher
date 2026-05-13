@@ -17,7 +17,7 @@ namespace RevokeMsgPatcher
             {
                 Apps = AppConfig(),
                 LatestVersion = "2.1",
-                PatchVersion = 20260131,
+                PatchVersion = 20260512,
                 Notice = "",
                 NoticeUrl = "",
             };
@@ -1436,11 +1436,59 @@ namespace RevokeMsgPatcher
                         "Weixin.dll",
                         new List<CommonModifyInfo>
                         {
+                            //new CommonModifyInfo
+                            //{
+                            //    Name="Weixin.dll",
+                            //    StartVersion="4.1.9.0",
+                            //    EndVersion="",
+                            //    ReplacePatterns = new List<ReplacePattern>
+                            //    {
+                            //        new ReplacePattern
+                            //        {
+                            //            Search = ByteUtil.HexStringToByteArray("48 8D 55 3F 45 31 C0 E8 3F 3F 3F 3F 90 48 8B 9D 3F 3F 3F 3F 48 85 DB 74 3F F0 FF 4B 08"),
+                            //            Replace = ByteUtil.HexStringToByteArray("48 8D 55 3F 48 83 85 68 03 00 00 01 90 48 8B 9D 3F 3F 3F 3F 48 85 DB 74 3F F0 FF 4B 08"),
+                            //            Category = "防撤回"
+                            //        },
+                            //        new ReplacePattern
+                            //        {
+                            //            Search = ByteUtil.HexStringToByteArray("48 83 EC 3F 4C 3F 3F 48 3F 3F C6 44 24 3F 01 C6 44 24 3F 00 4D 3F 3F 49 3F 3F E8"),
+                            //            Replace = ByteUtil.HexStringToByteArray("48 83 EC 3F 4C 3F 3F 48 3F 3F C6 44 24 3F 01 C6 44 24 3F 01 4D 3F 3F 49 3F 3F E8"),
+                            //            Category = "防撤回"
+                            //        },
+                            //        new ReplacePattern
+                            //        {
+                            //            Search = ByteUtil.HexStringToByteArray("81 FF B7 00 00 00 0F 85"),
+                            //            Replace = ByteUtil.HexStringToByteArray("81 FF B7 00 00 00 90 E9"),
+                            //            Category = "多开"
+                            //        }
+                            //    }
+                            //},
+                            new CommonModifyInfo
+                            {
+                                Name="Weixin.dll",
+                                StartVersion="4.1.9.0",
+                                EndVersion="",
+                                ReplacePatterns = new List<ReplacePattern>
+                                {
+                                    new ReplacePattern
+                                    {
+                                        Search = ByteUtil.HexStringToByteArray("90 48 89 86 C8 01 00 00 4C 89 AD 08 02 00 00 4C 8D 05"),
+                                        Replace = ByteUtil.HexStringToByteArray("90 48 29 86 C8 01 00 00 4C 89 AD 08 02 00 00 4C 8D 05"),
+                                        Category = "防撤回"
+                                    },
+                                    new ReplacePattern
+                                    {
+                                        Search = ByteUtil.HexStringToByteArray("81 FF B7 00 00 00 0F 85"),
+                                        Replace = ByteUtil.HexStringToByteArray("81 FF B7 00 00 00 90 E9"),
+                                        Category = "多开"
+                                    }
+                                }
+                            },
                             new CommonModifyInfo
                             {
                                 Name="Weixin.dll",
                                 StartVersion="4.1.7.1",
-                                EndVersion="",
+                                EndVersion="4.1.9.0",
                                 ReplacePatterns = new List<ReplacePattern>
                                 {
                                     new ReplacePattern
